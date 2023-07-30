@@ -38,7 +38,7 @@ nav.visible {
   transition: all 0.4s ease-out;
 }
 html {
-  background: url(../../public/background.svg);
+  background: var(--var-color-component-black);
   height: max-content;
   box-sizing: border-box;
   margin: 0;
