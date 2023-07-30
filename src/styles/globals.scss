@@ -16,7 +16,7 @@
 }
 @media only screen and (max-width: 768px) {
 html {
-  padding-bottom: 67vh;
+  padding-bottom: 60vh;
 }
 }
 nav {
@@ -66,6 +66,10 @@ body {
   height: 5px;
   background: var(--var-color-component-white);
   transform-origin: 0%;
+
+  &::after {
+    filter: drop-shadow(0 0 0.9rem var(--var-color-component-primary));
+  }
 }
 
 
@@ -575,3 +579,9 @@ animation-iteration-count: 2;
   -webkit-animation-timing-function: ease-in-out;	
   visibility: visible !important;
 }
+
+nav.scrolled {
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0, 0.8);
+}
+
