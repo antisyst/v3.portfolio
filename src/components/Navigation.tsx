@@ -16,7 +16,7 @@ position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--var-color-component-black);
+  background: rgba(0,0,0,0);
   gap: 20px;
   width: 100%;
   height: 100px;
@@ -207,13 +207,29 @@ const Navigation = () => {
   };
   const musicUrl = 'https://audio.jukehost.co.uk/VXEku0rDajT7KltCaY5XgVqYGg6EGRxS';
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      setIsScrolled(scrollTop > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+
   return (
-      <Nav className={`${isNavbarVisible ? "visible" : ""}`}>
+      <Nav className={`${isNavbarVisible ? "visible" : ""} ${isScrolled ? 'scrolled' : ''}`}>
         <Fade delay={4200} triggerOnce={true} direction={"down"} cascade damping={1e-1}>
           <Link href="#">
           <LogoCaption>
             <MainLogo/>
-            <BetaTitle>BETA</BetaTitle>
+            <BetaTitle>V3</BetaTitle>
         </LogoCaption>
           </Link>
         </Fade>
